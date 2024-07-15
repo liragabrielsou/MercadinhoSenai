@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="multiply"
     tools:context=".ListPageActivity">
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/amaranth_bold"
+            android:fontFamily="@font/amaranth"
             android:gravity="center"
             android:text="Produtos"
             android:textColor="#FFFFFF"
@@ -41,8 +42,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#60000000"
+                android:fontFamily="@font/amaranth"
                 android:hint="Nome"
-                android:inputType="text|textShortMessage" />
+                android:inputType="text|textShortMessage"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -58,8 +62,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#60000000"
+                android:fontFamily="@font/amaranth"
                 android:hint="Descricao"
-                android:inputType="text|textShortMessage" />
+                android:inputType="text|textShortMessage"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -75,8 +82,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#60000000"
+                android:fontFamily="@font/amaranth"
                 android:hint="Valor"
-                android:inputType="number|numberDecimal" />
+                android:inputType="number|numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/edit_24px"
                 android:drawableTint="#FFFFFF"
+                android:fontFamily="@font/amaranth"
                 android:text="Editar" />
 
             <Button
@@ -112,12 +123,24 @@
 
         <ListView
             android:id="@+id/listaItens"
-            style="@android:style/Widget.DeviceDefault.Light.ListView.DropDown"
             android:layout_width="350dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="#57FFFFFF" />
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="#70FFFFFF"
+            android:backgroundTint="#7CFFFFFF"
+            android:backgroundTintMode="add"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Loading"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

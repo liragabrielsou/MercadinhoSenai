@@ -32,7 +32,10 @@ class ListPageActivity : AppCompatActivity() {
         }
 
         binding.editButton.setOnClickListener {
-            if (position >= 0 && binding.inputName.text.toString().isEmpty() or binding.inputDescription.text.toString().isEmpty() or binding.inputValue.text.toString().isEmpty() ) {
+            if (position >= 0 && (!binding.inputName.text.toString().trim().isEmpty() ||
+                        !binding.inputDescription.text.toString().trim().isEmpty() ||
+                        !binding.inputValue.text.toString().trim().isEmpty())
+            ) {
                 listItens.get(position)?.name = binding.inputName.text.toString()
                 listItens.get(position)?.description = binding.inputDescription.text.toString()
                 listItens.get(position)?.value = binding.inputValue.text.toString()
@@ -44,14 +47,19 @@ class ListPageActivity : AppCompatActivity() {
                 binding.inputValue.setText("")
 
                 position = -1
-            }else{}
+            } else {
+            }
+        }
 
             binding.deleteButton.setOnClickListener {
-                if (position >= 0){
+                if (position >= 0 && (!(binding.inputName.text.toString() != listItens.get(position)?.name)  ||
+                            !(binding.inputDescription.text.toString() != listItens.get(position)?.description) ||
+                            !(binding.inputValue.text.toString() != listItens.get(position)?.value))){
 
                     listItens.remove(listItens.get(position))
 
                     adapter.notifyDataSetChanged()
+
                     binding.inputValue.setText("")
                     binding.inputName.setText("")
                     binding.inputDescription.setText("")
@@ -63,7 +71,7 @@ class ListPageActivity : AppCompatActivity() {
                         .show()
                 }
             }
+
         }
 
     }
-}

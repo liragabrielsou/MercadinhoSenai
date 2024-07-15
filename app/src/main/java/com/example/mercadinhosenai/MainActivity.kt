@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         val listProduct = ArrayList<Product>()
 
-
         //Evento do botão para cadastrar produto
         binding.registerButton.setOnClickListener {
 
