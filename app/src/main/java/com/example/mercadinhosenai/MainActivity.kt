@@ -28,9 +28,22 @@ class MainActivity : AppCompatActivity() {
             var descriProd = binding.inputDescriptionProd.text.toString()
             var valueProd = binding.inputValueProd.text.toString()
 
+            var verifyProduct = Product(nameProd,descriProd,valueProd)
+
             if(!nameProd.isEmpty()
                 && !descriProd.isEmpty()
                 && !valueProd.isEmpty()){
+
+                listProduct.forEach{
+                    if (it.equals(verifyProduct)){
+                        Snackbar.make(binding.root, "Produto já existe!", Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(resources.getColor(R.color.DarkRed))
+                            .setTextColor(resources.getColor(R.color.white))
+                            .show()
+                        return@setOnClickListener
+                    }
+                }
+
                 //Adiciona os dados a Array do Objeto Produto
                 listProduct.add(
                     Product(nameProd,
